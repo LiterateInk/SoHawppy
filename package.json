@@ -1,0 +1,54 @@
+{
+  "name": "sohawppy",
+  "version": "0.0.0",
+  "description": "An awmazing API wrapper for SoHappy.",
+  "repository": "https://github.com/LiterateInk/SoHawppy",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "checks": "tsc && eslint ."
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "sohappy",
+    "api",
+    "wrapper",
+    "restauration"
+  ],
+  "author": "LiterateInk <contact@literate.ink> (https://literate.ink)",
+  "homepage": "https://docs.literate.ink/sohawppy",
+  "bugs": {
+    "url": "https://github.com/LiterateInk/SoHawppy/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.7.2",
+    "@types/bun": "^1.1.14",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "terser": "^5.31.6",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@literate.ink/utilities": "1.0.0-11713907881.1"
+  }
+}
