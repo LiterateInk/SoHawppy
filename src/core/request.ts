@@ -16,4 +16,9 @@ export class Request {
     this.content = JSON.stringify(content);
     return this;
   }
+
+  public addAuthorization (token: string): Request {
+    this.headers["authorization"] = `Bearer ${token}`;
+    return this;
+  }
 }

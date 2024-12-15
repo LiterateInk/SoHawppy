@@ -2,7 +2,7 @@ import { defaultFetcher, type Fetcher } from "@literate.ink/utilities";
 import { Request } from "~/core/request";
 
 import type { LoginResponse, Token, Universe } from "~/models";
-import type * as definitions from "~/definitions/login";
+import type * as definitions from "~/definitions";
 
 export const login = async (mail: string, password: string, fetcher: Fetcher = defaultFetcher): Promise<LoginResponse> => {
   const request = new Request("api-app/tokens", "POST")

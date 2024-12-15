@@ -1,4 +1,4 @@
-export interface login {
+export type login = {
   default_universe: {
     code: string
   }
@@ -7,4 +7,4 @@ export interface login {
     expiration_date: string
     value: string
   }
-}
+};
