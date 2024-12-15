@@ -1,7 +1,7 @@
 import { test, spyOn, expect } from "bun:test";
 
-import type { LoginResponse } from "~/definitions/login";
-import { login } from "~/api/login";
+import type * as definitions from "~/definitions";
+import * as sohappy from "~/api";
 
 import type { Response } from "@literate.ink/utilities";
 import * as utils from "@literate.ink/utilities";
@@ -23,13 +23,13 @@ test("login", async () => {
     content: JSON.stringify({
       default_universe: { code: mocked.universe_code },
       token: { expiration_date: mocked.expiration_date, value: mocked.token_value }
-    } as LoginResponse)
+    } as definitions.login)
   };
 
   const spy = spyOn(utils, "defaultFetcher")
     .mockResolvedValue(response);
 
-  const token = await login(mocked.mail, mocked.password);
+  const token = await sohappy.login(mocked.mail, mocked.password);
 
   expect(spy).toHaveBeenCalledWith(
     expect.objectContaining({

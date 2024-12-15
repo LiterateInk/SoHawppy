@@ -1,4 +1,4 @@
-export interface LoginResponse {
+export interface login {
   default_universe: {
     code: string
   }

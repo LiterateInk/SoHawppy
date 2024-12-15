@@ -1,9 +1,10 @@
 import { defaultFetcher, type Fetcher } from "@literate.ink/utilities";
 import { Request } from "~/core/request";
-import { LoginResponse } from "~/definitions/login";
-import { Token, Universe } from "~/models";
 
-export const login = async (mail: string, password: string, fetcher: Fetcher = defaultFetcher) => {
+import type { LoginResponse, Token, Universe } from "~/models";
+import type * as definitions from "~/definitions/login";
+
+export const login = async (mail: string, password: string, fetcher: Fetcher = defaultFetcher): Promise<LoginResponse> => {
   const request = new Request("api-app/tokens", "POST")
     .addContentJSON({ mail, password });
 
@@ -12,7 +13,7 @@ export const login = async (mail: string, password: string, fetcher: Fetcher = d
   if (response.status !== 200)
     throw new Error("bad authentication");
 
-  const json: LoginResponse = JSON.parse(response.content);
+  const json: definitions.login = JSON.parse(response.content);
 
   return {
     universe: {
