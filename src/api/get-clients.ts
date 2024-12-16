@@ -1,15 +1,16 @@
 import { defaultFetcher, type Fetcher } from "@literate.ink/utilities";
 import { Request } from "~/core/request";
 
-import type { LoginResponse, GetClient } from "~/models";
+import type { GetClient } from "~/models";
 import type * as definitions from "~/definitions";
 
 export const getClients = async (
-  session: LoginResponse,
+  token: string,
+  univers_code: string,
   fetcher: Fetcher = defaultFetcher
 ): Promise<Array<GetClient>> => {
-  const request = new Request(`api-app/users/clients?univers_code=${session.universe.code}`, "GET")
-    .addAuthorization(session.token.value);
+  const request = new Request(`api-app/users/clients?univers_code=${univers_code}`, "GET")
+    .addAuthorization(token);
 
   const response = await fetcher(request);
   const json: definitions.get_clients = JSON.parse(response.content);
